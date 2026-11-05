@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A smarter support hub for CA aspirants — notes, resources, resume tools and personal mentorship." />
+  <title>CA Compass — Your CA journey, clearer.</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    :root{--ink:#f7f8ff;--muted:#aab3ca;--line:rgba(255,255,255,.14);--glass:rgba(255,255,255,.075);--accent:#8b9cff;--accent2:#b8a1ff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);font-family:Inter,system-ui,sans-serif;background:#080b18;min-height:100vh;overflow-x:hidden}
+    body:before,body:after{content:"";position:fixed;z-index:-1;filter:blur(85px);opacity:.5;border-radius:50%;pointer-events:none}
+    body:before{width:520px;height:520px;background:#4b3aab;top:-180px;left:-150px}
+    body:after{width:500px;height:500px;background:#176b9c;right:-180px;bottom:-160px}
+    .wrap{width:min(1120px,92%);margin:auto}
+    nav{display:flex;align-items:center;justify-content:space-between;padding:24px 0}
+    .brand{display:flex;gap:11px;align-items:center;font-weight:800;letter-spacing:-.04em;font-size:19px}
+    .logo{width:38px;height:38px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#a5b4fc,#7c3aed);box-shadow:0 8px 28px #7864ff55;font-weight:900}
+    .navlinks{display:flex;gap:25px;align-items:center}.navlinks a{color:var(--muted);text-decoration:none;font-size:13px}.navlinks a:hover{color:white}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 17px;border-radius:14px;text-decoration:none;color:white;font-size:13px;font-weight:600;border:1px solid var(--line);background:rgba(255,255,255,.08);backdrop-filter:blur(16px);transition:.2s}
+    .btn.primary{background:linear-gradient(135deg,#7c83ff,#8b5cf6);border:0;box-shadow:0 10px 30px #7164ff35}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+    .hero{padding:82px 0 65px;text-align:center;position:relative}
+    .eyebrow{display:inline-flex;padding:8px 12px;border:1px solid var(--line);border-radius:99px;background:var(--glass);color:#cbd3ff;font-size:12px;letter-spacing:.02em}
+    h1{font-size:clamp(42px,7vw,78px);line-height:1.02;letter-spacing:-.07em;margin:23px auto 18px;max-width:850px}
+    h1 span{background:linear-gradient(100deg,#b9c5ff,#d7b7ff 55%,#8de2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);max-width:600px;margin:0 auto 28px;line-height:1.8;font-size:16px}
+    .actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .hero-note{margin:35px auto 0;color:#8791ad;font-size:12px}
+    .section{padding:38px 0 72px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:25px}
+    .kicker{color:#9faaff;text-transform:uppercase;font-size:11px;letter-spacing:.16em;font-weight:700}
+    h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.055em;margin:9px 0 0}
+    .section-head p{max-width:410px;color:var(--muted);line-height:1.7;font-size:13px;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .glass{background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:24px;backdrop-filter:blur(24px);box-shadow:0 18px 55px rgba(0,0,0,.15)}
+    .service{padding:24px;min-height:235px;display:flex;flex-direction:column;transition:.25s}.service:hover{transform:translateY(-5px);border-color:#a5b4fc66}
+    .icon{width:46px;height:46px;border-radius:15px;background:#9aa6ff18;border:1px solid #aab5ff30;display:grid;place-items:center;font-size:21px}
+    .service h3{margin:19px 0 8px;font-size:18px;letter-spacing:-.03em}.service p{color:var(--muted);font-size:13px;line-height:1.7;margin:0 0 20px}
+    .service a{margin-top:auto;color:#c3caff;text-decoration:none;font-size:13px;font-weight:600}
+    .feature{padding:30px;display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:center}
+    .feature h3{font-size:26px;letter-spacing:-.05em;margin:10px 0}.feature p{color:var(--muted);line-height:1.8;font-size:14px}
+    .mini-panel{padding:20px;border-radius:18px;background:rgba(9,13,29,.45);border:1px solid var(--line)}
+    .mini-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.mini-row:last-child{border:0}
+    .mini-row span{margin-left:auto;color:#a8b2cc;font-size:11px}
+    .cta{padding:42px;text-align:center}.cta h2{margin:0 auto 12px}.cta p{color:var(--muted);max-width:560px;margin:0 auto 24px;line-height:1.7;font-size:14px}
+    footer{padding:25px 0 35px;color:#79839e;font-size:12px;display:flex;justify-content:space-between;border-top:1px solid var(--line);gap:15px}
+    @media(max-width:800px){.navlinks a:not(.btn){display:none}.grid{grid-template-columns:1fr 1fr}.feature{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}.hero{padding-top:60px}}
+    @media(max-width:540px){.grid{grid-template-columns:1fr}.hero p{font-size:14px}.cta{padding:28px 20px}footer{flex-direction:column}.service{min-height:205px}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <a class="brand" href="#" style="text-decoration:none;color:inherit"><span class="logo">C</span> CA Compass</a>
+      <div class="navlinks">
+        <a href="#services">Services</a><a href="#resources">Resources</a><a href="#mentorship">Mentorship</a>
+        <a class="btn" href="mailto:hello@example.com?subject=CA%20Compass%20Enquiry">Get in touch ↗</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero wrap">
+      <span class="eyebrow">A better way to navigate your CA journey</span>
+      <h1>Your CA journey.<br><span>Clearer. Smarter. Stronger.</span></h1>
+      <p>Practical resources, career tools and personal guidance for CA aspirants — all in one focused space.</p>
+      <div class="actions"><a class="btn primary" href="#services">Explore resources <span>↗</span></a><a class="btn" href="#mentorship">Book a 1:1 session</a></div>
+      <div class="hero-note">Built for the ambition behind the CA tag.</div>
+    </section>
+
+    <section class="section wrap" id="services">
+      <div class="section-head"><div><div class="kicker">The student toolkit</div><h2>Everything to move forward.</h2></div><p>Useful, student-first support for exams, skills and the next step in your career.</p></div>
+      <div class="grid">
+        <article class="glass service"><div class="icon">📚</div><h3>Class Notes & Resources</h3><p>Access curated class notes, revision material and helpful study resources.</p><a href="mailto:hello@example.com?subject=Class%20Notes">Explore notes →</a></article>
+        <article class="glass service"><div class="icon">✍️</div><h3>Self-prepared Notes</h3><p>Purchase concise, exam-focused notes prepared with a practical approach.</p><a href="mailto:hello@example.com?subject=Self-prepared%20Notes">View note catalogue →</a></article>
+        <article class="glass service"><div class="icon">💼</div><h3>Resume Builder</h3><p>Create a polished resume for articleship, internships and finance roles.</p><a href="mailto:hello@example.com?subject=Resume%20Builder">Build your resume →</a></article>
+        <article class="glass service"><div class="icon">🎯</div><h3>Preparation Strategy</h3><p>Build a realistic study plan, improve revision cycles and stay accountable.</p><a href="#mentorship">Get a strategy →</a></article>
+        <article class="glass service"><div class="icon">🧭</div><h3>1:1 Mentorship</h3><p>Discuss your attempt, preparation challenges and next steps directly with me.</p><a href="#mentorship">Book a session →</a></article>
+        <article class="glass service"><div class="icon">🚀</div><h3>Career Guidance</h3><p>Explore articleship, CV positioning, interviews and early-career opportunities.</p><a href="mailto:hello@example.com?subject=Career%20Guidance">Ask a question →</a></article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="resources">
+      <div class="glass feature">
+        <div><div class="kicker">Resources that make a difference</div><h3>Study with direction,<br>not just more material.</h3><p>Find structured resources designed to help you focus on what matters. The library can grow over time with subject-wise notes, revision sheets, checklists and exam strategy guides.</p><a class="btn primary" href="mailto:hello@example.com?subject=Resource%20Library">Request access ↗</a></div>
+        <div class="mini-panel"><div class="mini-row">📄&nbsp; Revision notes <span>Coming soon</span></div><div class="mini-row">🗂️&nbsp; Study planner <span>Coming soon</span></div><div class="mini-row">🧠&nbsp; Exam strategy guide <span>Coming soon</span></div><div class="mini-row">💡&nbsp; Career checklist <span>Coming soon</span></div></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="mentorship">
+      <div class="glass cta"><div class="kicker">Personal guidance</div><h2>Let's make your next attempt count.</h2><p>Get clarity on your preparation, priorities and strategy through a focused one-on-one conversation.</p><a class="btn primary" href="mailto:hello@example.com?subject=Book%20a%20CA%20Mentorship%20Session">Enquire about a session ↗</a></div>
+    </section>
+  </main>
+  <footer class="wrap"><span>© <span id="year"></span> CA Compass. Built for CA aspirants.</span><span>Notes • Career tools • Mentorship</span></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
